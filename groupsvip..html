@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Groups</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <nav class="bg-white shadow-lg fixed w-full z-10">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-3">
+      <a href="dashboard.html" class="text-2xl font-bold text-blue-600">StudyWork</a>
+      <ul class="hidden md:flex space-x-6 text-lg">
+        <li><a href="study.html" class="hover:text-blue-500">Study</a></li>
+        <li><a href="work.html" class="hover:text-blue-500">Work</a></li>
+        <li><a href="groups.html" class="hover:text-blue-500 font-semibold">Groups</a></li>
+        <li><a href="login.html" class="text-red-500">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="pt-32 px-6 max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">My Study Groups</h1>
+    <form id="groupForm" class="flex space-x-4 mb-6">
+      <input type="text" id="groupName" placeholder="Enter group name" class="flex-1 border p-3 rounded" required>
+      <button class="bg-purple-600 text-white px-4 py-2 rounded animate-pulse">Create</button>
+    </form>
+    <ul id="groupList" class="space-y-3">
+      <li class="p-4 bg-white rounded shadow">Science Study Group</li>
+      <li class="p-4 bg-white rounded shadow">Math Revision Group</li>
+    </ul>
+    <div class="text-center mt-8">
+      <a href="dashboard.html" class="bg-gray-700 text-white px-5 py-3 rounded">Back to Dashboard</a>
+    </div>
+  </section>
+
+  <footer>
+    Created by Pranav Tayade
+  </footer>
+
+  <script>
+    document.getElementById('groupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('groupName').value.trim();
+      if (name) {
+        const li = document.createElement('li');
+        li.textContent = name;
+        li.className = 'p-4 bg-white rounded shadow';
+        document.getElementById('groupList').appendChild(li);
+        document.getElementById('groupName').value = '';
+      }
+    });
+  </script>
+</body>
+</html>
